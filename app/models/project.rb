@@ -1,3 +1,4 @@
 class Project < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  has_many :todos, dependent: :destroy
+  validates :name, presence: { message: "Did you forget to add a name?" }, uniqueness: true
 end
